@@ -75,7 +75,7 @@ namespace LinkedList {
 					if (!Flag) Sorted = true;
 					CurNode = CurNode.Next;
 				}
-				Console.WriteLine(this.ToString()); // DEBUG ONLY!				
+				//Console.WriteLine(this.ToString()); // DEBUG ONLY!				
 			}
 		}
 
@@ -97,6 +97,19 @@ namespace LinkedList {
 			}
 
 			return Out.ToString();
+		}
+
+		public bool Contains(Object data) {
+			Node CurNode = this.Head;
+			bool Result = false;
+			while (CurNode != null && Result == false) {
+				if(CurNode.Data.Equals(data)) {
+					Result = true;
+				}
+				CurNode = CurNode.Next;
+			}
+
+			return Result;
 		}
 	}
 

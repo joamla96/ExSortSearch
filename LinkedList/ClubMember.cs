@@ -35,5 +35,27 @@ namespace LinkedList {
 
 			return Result;
 		}
+
+		public override bool Equals(object obj) {
+			bool Result = false;
+			ClubMember Other = (ClubMember)obj;
+
+			if (
+				this.Nr.Equals(Other.Nr) &&
+				this.Fname.Equals(Other.Fname) &&
+				this.Lname.Equals(Other.Lname) &&
+				this.Age.Equals(Other.Age)
+				) {
+				Result = true;
+			} else {
+				Result = false;
+			}
+
+			return Result;
+		}
+
+		public override int GetHashCode() {
+			return Nr.GetHashCode() + Fname.GetHashCode() + Lname.GetHashCode() + Age.GetHashCode();
+		}
 	}
 }
