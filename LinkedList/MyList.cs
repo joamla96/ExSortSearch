@@ -64,7 +64,7 @@ namespace LinkedList {
 			bool Sorted = false;
 			bool Flag;
 
-			while (!Sorted) { 
+			while (!Sorted) {
 				Flag = false;
 				CurNode = this.Head;
 				while (CurNode != null && CurNode.Next != null) {
@@ -99,17 +99,36 @@ namespace LinkedList {
 			return Out.ToString();
 		}
 
-		public bool Contains(Object data) {
+		public bool Contains(object data) {
 			Node CurNode = this.Head;
 			bool Result = false;
 			while (CurNode != null && Result == false) {
-				if(CurNode.Data.Equals(data)) {
+				if (CurNode.Data.Equals(data)) {
 					Result = true;
 				}
 				CurNode = CurNode.Next;
 			}
 
 			return Result;
+		}
+
+
+		public int IndexOf(object data) {
+			int Counter = 0;
+			bool indexFound = false;
+			Node CurNode = this.Head;
+
+			while (CurNode != null && indexFound == false) {
+				if(CurNode.Data.Equals(data)) {
+					indexFound = true;
+				}
+
+				Counter++;
+				CurNode = CurNode.Next;
+			}
+
+
+			return Counter;
 		}
 	}
 
