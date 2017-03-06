@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{6CF25CCF-39A1-4544-8C92-24BEA250EF4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.CommandLine", "UI.CommandLine\UI.CommandLine.csproj", "{B6974CE3-9836-4E57-A45B-86E13F4FBB03}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CF25CCF-39A1-4544-8C92-24BEA250EF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF25CCF-39A1-4544-8C92-24BEA250EF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF25CCF-39A1-4544-8C92-24BEA250EF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF25CCF-39A1-4544-8C92-24BEA250EF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6974CE3-9836-4E57-A45B-86E13F4FBB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6974CE3-9836-4E57-A45B-86E13F4FBB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6974CE3-9836-4E57-A45B-86E13F4FBB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6974CE3-9836-4E57-A45B-86E13F4FBB03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
