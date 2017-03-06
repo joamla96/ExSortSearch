@@ -25,8 +25,20 @@ namespace UI.CommandLine {
 			FillCMArray(smallBinary);
 			FillCMArray(largeBinary);
 
+			Stopwatch TimeForLine = Stopwatch.StartNew();
 			SearchLinear(smallLinear, "smallLinear");
 			SearchLinear(largeLinear, "largeLinear");
+			TimeForLine.Stop();
+			Console.WriteLine("Total Time: " + TimeForLine.Elapsed + "\n");
+
+			Stopwatch TimeForBinary = Stopwatch.StartNew();
+			InsertionSort(smallBinary);
+			InsertionSort(largeBinary);
+
+			SearchBinary(smallBinary, "smallBinarySearch");
+			SearchBinary(largeBinary, "largeBinarySearch");
+			TimeForBinary.Stop();
+			Console.WriteLine("Total Time: " + TimeForBinary.Elapsed + "\n");
 
 			Console.ReadKey();
 		}
@@ -35,6 +47,53 @@ namespace UI.CommandLine {
 			for(int i = 0; i < array.Length; i++) {
 				array[i] = CMFactory.GetClubMember();
 			}
+		}
+
+		private void SearchBinary(IComparable[] arr, string Name) {
+			Random rnd = new Random();
+
+			int random1 = rnd.Next(0, arr.Length - 1);
+			int random2 = rnd.Next(0, arr.Length - 1);
+			int random3 = rnd.Next(0, arr.Length - 1);
+
+			IComparable One = arr[random1];
+			IComparable Two = arr[random2];
+			IComparable Three = arr[random3];
+
+			Stopwatch Timer = Stopwatch.StartNew();
+			for (int i = 0; i < 1000; i++) {
+				FindBinary(arr, One);
+				FindBinary(arr, Two);
+				FindBinary(arr, Three);
+			}
+			Timer.Stop();
+
+			Console.WriteLine("Timer '" + Name + "':" + Timer.Elapsed);
+		}
+
+		private IComparable FindBinary(IComparable[] arr, IComparable Find) {
+			int min = 0;
+			int max = arr.Length - 1;
+			IComparable Result = null;
+
+			while(Result == null) {
+				int Middle = FindMiddle(min, max);
+				int Compared = Find.CompareTo(arr[Middle]);
+
+				if(Compared > 0) {
+					max = Middle;
+				} else if(Compared < 0) {
+					min = Middle;
+				} else if(Compared == 0) {
+					Result = arr[Middle];
+				}
+			}
+						
+			return Result;
+		}
+
+		private int FindMiddle(int min, int max) {
+			return ((max - min) / 2) + min;
 		}
 
 		private void SearchLinear(IComparable[] arr, string Name) {
@@ -61,12 +120,29 @@ namespace UI.CommandLine {
 
 		private IComparable FindLinear(IComparable[] arr, IComparable Find) {
 			IComparable Result = null;
-			foreach(IComparable Me in arr) { // TODO: Stop loop on result
+			foreach(IComparable Me in arr) {
 				if(Me.Equals(Find)) {
 					Result = Me;
+					break; // TODO: Makeinto a while loop
 				}
 			}
 			return Result;
+		}
+
+		private void InsertionSort(IComparable[] arr) {
+			for(int i = 0; i < arr.Length-1; i++) {
+				int j = i + 1;
+
+				while(j > 0) {
+					if(arr[j-1].CompareTo(arr[j]) < 0) {
+						IComparable temp = arr[j - 1];
+						arr[j - 1] = arr[j];
+						arr[j] = temp;
+					}
+
+					j--;
+				}
+			}
 		}
 
 		private void Run() {
