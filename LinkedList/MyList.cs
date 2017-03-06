@@ -126,8 +126,7 @@ namespace LinkedList {
 				Counter++;
 				CurNode = CurNode.Next;
 			}
-
-
+			
 			return Counter;
 		}
 	}

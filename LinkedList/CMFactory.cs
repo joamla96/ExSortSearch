@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LinkedList {
-	static class CMFactory {
+	public static class CMFactory {
 		private static char[] alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 		private static Random rnd = new Random();
 
