@@ -29,6 +29,10 @@ namespace Core {
 				Result = this.Fname.CompareTo(Other.Fname);
 			}
 
+			if(Result == 0) {
+				Result = this.Lname.CompareTo(Other.Lname);
+			}
+
 			if (Result == 0) {
 				Result = this.Age.CompareTo(Other.Age);
 			}

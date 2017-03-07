@@ -13,32 +13,31 @@ namespace UI.CommandLine {
 			int smallSize = 1000;
 			int largeSize = smallSize * 10;
 
-			ClubMember[] smallLinear = new ClubMember[smallSize];
-			ClubMember[] largeLinear = new ClubMember[largeSize];
+			ClubMember[] small = new ClubMember[smallSize];
+			ClubMember[] large = new ClubMember[largeSize];
 
-			ClubMember[] smallBinary = new ClubMember[smallSize];
-			ClubMember[] largeBinary = new ClubMember[largeSize];
+			FillCMArray(small);
+			FillCMArray(large);
 
-			FillCMArray(smallLinear);
-			FillCMArray(largeLinear);
-
-			FillCMArray(smallBinary);
-			FillCMArray(largeBinary);
-
+			// Linear Search in Array.
 			Stopwatch TimeForLine = Stopwatch.StartNew();
-			SearchLinear(smallLinear, "smallLinear");
-			SearchLinear(largeLinear, "largeLinear");
+			SearchLinear(small, "smallLinear");
+			SearchLinear(large, "largeLinear");
 			TimeForLine.Stop();
 			Console.WriteLine("Total Time: " + TimeForLine.Elapsed + "\n");
 
-			Stopwatch TimeForBinary = Stopwatch.StartNew();
-			InsertionSort(smallBinary);
-			InsertionSort(largeBinary);
 
-			SearchBinary(smallBinary, "smallBinarySearch");
-			SearchBinary(largeBinary, "largeBinarySearch");
+			// Binary Search in Array
+			Stopwatch TimeForBinary = Stopwatch.StartNew();
+			InsertionSort(small);
+			InsertionSort(large);
+
+			SearchBinary(small, "smallBinarySearch");
+			SearchBinary(large, "largeBinarySearch");
 			TimeForBinary.Stop();
 			Console.WriteLine("Total Time: " + TimeForBinary.Elapsed + "\n");
+
+			// Binary Search Tree
 
 			Console.ReadKey();
 		}
