@@ -6,21 +6,50 @@ using System.Threading.Tasks;
 
 namespace LinkedList {
 	class MyBST {
-		BNode Root;
+		private BNode Root;
 
 		public void Insert(IComparable Data) {
+			BNode CurNode = Root;
+			while(CurNode != null) {
+				int Compared = Data.CompareTo(CurNode.Data);
+				if (Compared < 0) {
+					CurNode = CurNode.Left;
+				} else if(Compared > 0) {
+					CurNode = CurNode.Right;
+				} else if(Compared == 0) {
+					CurNode = CurNode.Left;
+				}
+			}
 
+			CurNode = new BNode(Data);
 		}
 
-		public int Search(IComparable Data) {
+		public IComparable Search(IComparable Data) {
+			BNode CurNode = Root;
+			IComparable Result = null;
+			while(CurNode != null && Result == null) {
+				int Compared = Data.CompareTo(CurNode.Data);
+				if (Compared < 0) {
+					CurNode = CurNode.Left;
+				} else if (Compared > 0) {
+					CurNode = CurNode.Right;
+				} else if (Compared == 0) {
+					Result = CurNode.Data;
+				}
+			}
 
+			return Result;
 		}
 	}
 
-	class BNode {
-		BNode Left;
-		BNode Right;
+	public class BNode {
+		internal BNode Left;
+		internal BNode Right;
 
-		IComparable Data;
+		public IComparable Data;
+
+		public BNode(IComparable data) {
+			this.Data = data;
+		}
 	}
 }
