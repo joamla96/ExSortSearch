@@ -1,5 +1,5 @@
 ﻿using System;
-using LinkedList;
+using Core;
 using System.Diagnostics;
 
 namespace UI.CommandLine {

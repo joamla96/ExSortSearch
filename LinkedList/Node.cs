@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LinkedList {
+namespace Core {
 	public class Node {
 		public Node Next = null;
 		public IComparable Data = null;

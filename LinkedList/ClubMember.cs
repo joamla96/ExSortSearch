@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace LinkedList {
+namespace Core {
 	public class ClubMember : IComparable {
 		public int Nr { get; set; }
 		public string Fname { get; set; }

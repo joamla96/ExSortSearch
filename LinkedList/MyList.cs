@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System;
 
-namespace LinkedList {
+namespace Core {
 	public class MyList {
 		private Node Head { get; set; }
 		// Should be public with private set? Otherwise outsiders cant get to the list, but may be the point or?

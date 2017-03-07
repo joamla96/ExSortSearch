@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList {
+namespace Core {
 	public interface QueueInterface {
 		bool isEmpty();
 		//Pre: none
